@@ -1,0 +1,418 @@
+Brandon Hays
+Hospitality Scrape
+Sunday, Sep 28
+BH
+Brandon Hays
+9:30 PM
+Hi Muhammad Haseeb
+I need a partner to build Dallas datasets. Restaurants: all $$+ via OpenTable, Resy, Tock (enriched w/ Maps/Yelp). Causes: PTAs/schools, Dallas-based foundations, churches, museums. Creators: 10k micro/mid (via Favikon/Modash + #LTK/#ShopMy). Clean, deduped, AWS-ready. Can you help?
+
+Muhammad Haseeb Javed
+9:44 PM
+Hi Brandon,
+Thanks for sharing the details. Yes, I can definitely help you with building the Dallas datasets across all three categories you mentioned:
+
+
+
+Restaurants: Collecting mid to high-end ($$+) Dallas restaurants from OpenTable, Resy, and Tock, enriched with Google Maps and Yelp details.
+
+
+
+Causes: Building a dataset of PTAs/schools, Dallas-based foundations, churches, and museums.
+
+
+
+Creators: Compiling 10k micro/mid creators via Favikon, Modash, and hashtags (#LTK, #ShopMy).
+
+
+
+All datasets will be clean, deduplicated, accurate, and AWS-ready so you can directly use them.
+
+
+
+Could you let me know your preferred deadline and the exact volume you’d like for restaurants and causes (since creators are already specified as 10k)? This will help me structure the timeline and share a clear proposal.
+
+
+
+Best regards,
+Muhammad Haseeb
+
+BH
+Brandon Hays
+9:46 PM
+Dallas Data Ops Playbook (Scraping & Infra Partner Version)
+1. Objectives
+Restaurants: Build a complete dataset of all Dallas restaurants in $$, $$$, or higher, focused on OpenTable, Resy, and Tock.
+
+
+
+Causes: Master lists of Dallas PTAs/schools (private → public), charities/foundations (Dallas-based, ranked by size), churches (by congregation), museums.
+
+
+
+Creators: Curate and vet a list of ~10,000 Dallas-based creators using tiered gates (VIP / Strong / Long-Tail).
+
+
+
+2. Sources
+Restaurants: OpenTable, Resy, Tock (primary); Google Maps + Yelp (enrichment).
+
+
+
+Causes: ISD & PTA directories, GuideStar, Charity Navigator, IRS 990s, church directories, museum sites.
+
+
+
+Creators: Favikon, Modash, PhantomBuster, HypeAuditor (QA sample).
+
+
+
+3. Gates (Filters)
+Restaurants:
+Geography: Dallas city + 10–15 mi.
+
+
+
+Price: $$, $$$, or higher.
+
+
+
+Exclude fast food/QSR.
+
+
+
+Reservation required/available.
+
+
+
+Causes:
+Schools/PTAs: must have ≥200 families.
+
+
+
+Foundations: ≥$50k annual giving, Dallas-based.
+
+
+
+Churches: ≥200 members.
+
+
+
+Museums: Dallas-based only.
+
+
+
+Creators:
+Tier 1 (VIP): 3k–250k followers, ≥2.5–3% ER, ≥35–40% Dallas audience, ≥50% food content, ≥1 post/week.
+
+
+
+Tier 2 (Strong): 2k–300k followers, ≥1.5–2% ER, ≥25–30% Dallas audience, ≥35–50% food content, ≥2 posts/month.
+
+
+
+Tier 3 (Long-Tail): 1k–500k followers, ≥1% ER, ≥15–25% Dallas audience, ≥25–35% food content, ≥1 post in last 90 days.
+
+
+
+Exclude inactive, fake, “DM for comps.”
+
+
+
+4. Schema (Output Fields)
+Restaurants:
+name, address, phone, website, reservation_platform, reservation_url, price_band, cuisine_tags, neighborhood, lat, lng, hours, avg_check_estimate, rating, review_count, image_url, menu_url, source_platform
+Causes:
+org_name, EIN, org_type, address, phone, email, contact_name, website, size_indicator, IRS_990_link
+Creators:
+handle, platform, followers, engagement_rate, audience_location_pct (DFW), food_focus_pct, cadence_flag, email, bio, link_ready_flag, compliance_flag, tier
+
+
+
+5. Cleaning Rules
+Deduplicate by name+address (restaurants), EIN (causes), handle (creators).
+
+
+
+Normalize phone (###-###-####).
+
+
+
+UTF-8 encoding.
+
+
+
+Remove ™, ®, “Restaurant” suffix unless brand identity.
+
+
+
+Cuisine taxonomy standardized.
+
+
+
+Verify URLs resolve.
+
+
+
+6. Infra & Maintenance
+Pilot: Run locally on your infra with proxies/VPN.
+
+
+
+Scale: Deploy scrapers to AWS (EC2 + Docker) with rotating proxy pool (SmartProxy, BrightData).
+
+
+
+Store outputs in S3, optional Postgres (RDS).
+
+
+
+Monitoring: Job success/fail, field completeness %, error logs to Slack/email.
+
+
+
+SLA: 5–10 hrs/month retainer, critical fixes in 48–72h.
+
+
+
+7. Milestones (Dallas Pilot)
+Sample: Deliver 10–15 row Dallas restaurants (full schema).
+
+
+
+Restaurants: Full Dallas dataset (all $$, $$$, or higher).
+
+
+
+Causes: Master Dallas lists per priority order.
+
+
+
+Creators: Deliver Dallas 10k (tiered).
+
+
+
+AWS/Proxy Setup: Deploy pipeline under an account.
+
+
+
+Maintenance: Ongoing monitoring + updates.
+
+
+
+Dallas — Priority Sources by Sector
+
+
+
+Restaurants (supply side)
+🎯 Goal: Complete list of all Dallas $$, $$$, or higher restaurants with booking links.
+Priority order:
+OpenTable → largest structured set in Dallas, must-have baseline.
+
+
+
+Resy → smaller footprint but highly relevant for trendy/upscale restaurants.
+
+
+
+Tock → narrower set, but captures unique higher-end venues.
+
+
+
+Google Maps API → enrichment (lat/lng, hours, neighborhoods, photos).
+
+
+
+Yelp API → enrichment (reviews, ratings, price confirmation).
+
+
+
+Causes (fundraising engine)
+🎯 Goal: Master list of Dallas PTAs, schools, charities, churches, museums.
+Priority order:
+Private School Websites / PTA Councils (Hockaday, Jesuit, Ursuline, Greenhill, etc.).
+
+
+
+Public ISD directories (DISD, HPISD, Plano ISD, Frisco ISD).
+
+
+
+GuideStar API / IRS 990 datasets (for Dallas-based foundations/charities).
+
+
+
+Charity Navigator (secondary validation).
+
+
+
+Church directories (Dallas Baptist Association, Catholic Diocese, non-denom lists).
+
+
+
+Museums/Arts institutions (DMA, Nasher, Perot, AT&T PAC, Dallas Contemporary).
+
+
+
+Creators (demand side)
+🎯 Goal: 10,000 Dallas-based micro/mid creators, tiered by quality.
+Priority order:
+Favikon / Modash API → bulk discovery + enrichment, apply gates (followers, ER, Dallas audience).
+
+
+
+PhantomBuster hashtag/location scrapes → prioritize #LTK and #ShopMy hashtags over food/neighborhood tags.
+
+
+
+Influencity / HypeAuditor → QA checks for authenticity and audience location.
+
+
+
+TikTok Creator Marketplace (if accessible).
+
+
+
+Manual curation → top Dallas lifestyle/food sources (Dallasites101, D Magazine, PaperCity).
+
+
+
+⚡ Summary of sequencing:
+Restaurants: OpenTable → Resy → Tock → Maps → Yelp.
+
+
+
+Causes: Private schools/PTAs → Public ISDs → Foundations → Charity Navigator → Churches → Museums.
+
+
+
+Creators: Favikon/Modash → PhantomBuster (#LTK/#ShopMy) → Influencity/HypeAuditor → TikTok Creator Marketplace → Manual curation.
+
+Muhammad Haseeb Javed
+10:21 PM
+Hi Brandon,
+
+
+
+Thanks for sharing the detailed playbook. I’ve reviewed it and I can definitely help with building the Dallas datasets (Restaurants, Causes, and Creators) as per your schema, filters, and cleaning rules, plus setting up the AWS infra.
+
+
+
+On a fast-track timeline, I can deliver:
+
+
+
+Restaurants + Causes: 2 weeks
+Creators (10k influencers): 3 weeks
+AWS infra setup: in parallel, total project 4–5 weeks
+Budget for full build: $3,500–3,800 one-time, with $200–300/month for maintenance and updates.
+We can also start with a small sample (10–15 restaurants) to confirm data quality before scaling.
+
+
+
+Would you like me to propose a phased delivery (datasets first, infra after) or everything in one package?
+
+
+
+Best,
+Muhammad Haseeb
+
+BH
+Brandon Hays
+10:25 PM
+Thank you... I do think i would like to see this broken out between datasets first and infra after... Do you think that is the right infra set up? is that overkill?
+
+
+
+I would like to see each rest/cause/creator with 10 lines to verify the results....
+
+Muhammad Haseeb Javed
+10:34 PM
+Hi Brandon,
+
+
+
+Thank you for clarifying. Yes, I believe breaking this into two clear phases makes the most sense:
+
+
+
+Phase 1 – Datasets
+We start by building out the three datasets (Restaurants, Causes, Creators). I’ll first deliver 10 sample rows for each dataset so you can validate the accuracy, fields, and formatting. Once you’re satisfied with the structure and quality, I’ll proceed with compiling the full datasets.
+
+
+
+Phase 2 – Infrastructure
+After the datasets are complete and approved, we can decide whether to move forward with the infra setup. In my view, a full AWS/Docker deployment at this stage may be overkill unless you need automated scaling right away. A simpler handover (CSV/Excel, clean & deduped, AWS-ready structure) is sufficient for now. Later, if you want automated pipelines and continuous refresh, we can layer infra on top.
+
+
+
+This step-by-step approach ensures you’re confident in the data first, before investing in infrastructure.
+
+
+
+Best regards,
+Muhammad Haseeb
+
+BH
+Brandon Hays
+10:36 PM
+ok what would the price for phase 1 be? I will have 20+ different markets that will have the same needs if we can enjoy working together on this one
+
+Muhammad Haseeb Javed
+10:38 PM
+For Phase 1 (Datasets) — covering Restaurants, Causes, and Creators for Dallas — my price would be $250. This includes:
+
+
+
+Clean, accurate, deduped datasets
+10 sample rows per dataset, first for your review
+Final delivery in a structured, AWS-ready format
+
+
+
+If you’re happy with the process and quality, I’d be glad to replicate the same for your other markets as well. That way we can build a consistent, scalable workflow across all 20+ markets.
+
+BH
+Brandon Hays
+10:39 PM
+how do we get started?
+
+Muhammad Haseeb Javed
+10:40 PM
+Just send me an offer and I will start work.
+
+BH
+Brandon Hays sent an offer
+
+10:45 PM
+liss of creators / restaurants / causes
+
+Est. Budget: US$250.00 (£194.50)
+
+Milestone 1: Hospitality Scrape
+
+Project funds: US$250.00 (£194.50)
+
+View offer
+tech scrub bible - needs expansion (1).docx 
+tech scrub bible - needs expansion (1).docx
+370 kB
+Muhammad Haseeb Javed
+10:48 PM
+Thanks for the offer, I will start and update you with the results, Thanks
+
+BH
+Brandon Hays
+10:50 PM
+when should i expect to see the sample dataset?
+
+Muhammad Haseeb Javed
+10:52 PM
+I will try to give you an update in the next 24 to 36 hours.
+
+BH
+Brandon Hays
+10:52 PM
+thank you
+
+Monday, Sep 29

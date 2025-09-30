@@ -1,0 +1,2 @@
+org_name,EIN,org_type,address,phone,website,IRS_990_link,provenance.collected_via,provenance.collected_at,provenance.irs_EIN,provenance.confidence
+Dallas Museum of Art,756013907,Museum,"1717 N Harwood St, Dallas, TX 75201",214-922-1200,https://dma.org,https://apps.irs.gov/pub/epostcard/Cor/2024/756013907_202312_990_2025022819063153.pdf,IRS,2025-09-30T22:30:00Z,756013907,0.97

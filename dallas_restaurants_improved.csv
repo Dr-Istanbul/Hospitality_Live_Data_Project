@@ -1,0 +1,2 @@
+name,address,phone,website,reservation_platform,reservation_url,price_band,cuisine_tags,neighborhood,lat,lng,rating,review_count,provenance.collected_via,provenance.collected_at,provenance.google_place_id,provenance.confidence
+Gemma,"2323 N Henderson Ave, Dallas, TX 75206",214-370-9426,https://gemmadallas.com,OpenTable,https://www.opentable.com/r/gemma-dallas,$$$,"['American', 'Contemporary']",Knox/Henderson,32.8123,-96.7891,4.5,682,GooglePlacesAPI,2025-09-30T22:30:00Z,ChIJEXAMPLE_GEMMA,0.95

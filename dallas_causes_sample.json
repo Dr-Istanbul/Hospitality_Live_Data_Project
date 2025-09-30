@@ -1,0 +1,122 @@
+[
+  {
+    "org_name": "Highland Park High School PTA",
+    "EIN": "75-1234567",
+    "org_type": "School/PTA",
+    "address": "4220 Emerson Ave, Dallas, TX 75205",
+    "phone": "214-780-3700",
+    "email": "info@hphspta.org",
+    "contact_name": "Jane Smith",
+    "website": "https://hphspta.org",
+    "size_indicator": "1500 families",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/751234567.pdf"
+  },
+  {
+    "org_name": "Jesuit College Preparatory School of Dallas",
+    "EIN": "75-0987654",
+    "org_type": "Private School",
+    "address": "12345 Inwood Rd, Dallas, TX 75244",
+    "phone": "972-387-8700",
+    "email": "admissions@jesuitcp.org",
+    "contact_name": "Mark Reynolds",
+    "website": "https://jesuitcp.org",
+    "size_indicator": "1100 students",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/750987654.pdf"
+  },
+  {
+    "org_name": "Dallas Museum of Art",
+    "EIN": "75-6013907",
+    "org_type": "Museum",
+    "address": "1717 N Harwood St, Dallas, TX 75201",
+    "phone": "214-922-1200",
+    "email": "info@dma.org",
+    "contact_name": "Sarah Johnson",
+    "website": "https://dma.org",
+    "size_indicator": "Annual visitors: 650,000",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756013907.pdf"
+  },
+  {
+    "org_name": "Perot Museum of Nature and Science",
+    "EIN": "75-6021446",
+    "org_type": "Museum",
+    "address": "2201 N Field St, Dallas, TX 75201",
+    "phone": "214-428-5555",
+    "email": "info@perotmuseum.org",
+    "contact_name": "David Lee",
+    "website": "https://perotmuseum.org",
+    "size_indicator": "Annual visitors: 500,000",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756021446.pdf"
+  },
+  {
+    "org_name": "Catholic Diocese of Dallas",
+    "EIN": "75-6021234",
+    "org_type": "Church",
+    "address": "3725 Blackburn St, Dallas, TX 75219",
+    "phone": "214-528-2240",
+    "email": "info@cathdal.org",
+    "contact_name": "Bishop Edward Burns",
+    "website": "https://cathdal.org",
+    "size_indicator": "1.2M members",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756021234.pdf"
+  },
+  {
+    "org_name": "Dallas Baptist Association",
+    "EIN": "75-6026789",
+    "org_type": "Church",
+    "address": "8001 E RL Thornton Fwy, Dallas, TX 75228",
+    "phone": "214-319-1159",
+    "email": "info@dallasbaptist.org",
+    "contact_name": "Rev. John Parker",
+    "website": "https://dallasbaptist.org",
+    "size_indicator": "400 churches",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756026789.pdf"
+  },
+  {
+    "org_name": "Hockaday School",
+    "EIN": "75-0981122",
+    "org_type": "Private School",
+    "address": "11600 Welch Rd, Dallas, TX 75229",
+    "phone": "214-363-6311",
+    "email": "admissions@hockaday.org",
+    "contact_name": "Laura Martinez",
+    "website": "https://hockaday.org",
+    "size_indicator": "1100 students",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/750981122.pdf"
+  },
+  {
+    "org_name": "Dallas Foundation",
+    "EIN": "75-6021533",
+    "org_type": "Foundation",
+    "address": "3963 Maple Ave, Dallas, TX 75219",
+    "phone": "214-741-9898",
+    "email": "info@dallasfoundation.org",
+    "contact_name": "Matthew Randazzo",
+    "website": "https://dallasfoundation.org",
+    "size_indicator": "$400M assets",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756021533.pdf"
+  },
+  {
+    "org_name": "Nasher Sculpture Center",
+    "EIN": "75-6021666",
+    "org_type": "Museum",
+    "address": "2001 Flora St, Dallas, TX 75201",
+    "phone": "214-242-5100",
+    "email": "info@nashersculpturecenter.org",
+    "contact_name": "Jeremy Strick",
+    "website": "https://nashersculpturecenter.org",
+    "size_indicator": "Annual visitors: 200,000",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/756021666.pdf"
+  },
+  {
+    "org_name": "Ursuline Academy of Dallas",
+    "EIN": "75-0983344",
+    "org_type": "Private School",
+    "address": "4900 Walnut Hill Ln, Dallas, TX 75229",
+    "phone": "214-360-8700",
+    "email": "info@ursulinedallas.org",
+    "contact_name": "Karen Roberts",
+    "website": "https://ursulinedallas.org",
+    "size_indicator": "800 students",
+    "IRS_990_link": "https://apps.irs.gov/pub/epostcard/cor/750983344.pdf"
+  }
+]

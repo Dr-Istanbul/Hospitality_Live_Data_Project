@@ -1,0 +1,130 @@
+🍽️ Mega Prompt — Dallas Restaurants Dataset (AWS + CC + API Enrichment)
+
+You are assisting with a data engineering project to build a Dallas Restaurants dataset.
+The goal is to deliver a clean, deduped, AWS-ready dataset of all Dallas restaurants in the $$, $$$, and $$$$ price bands, with enrichment from Google and Yelp.
+The dataset must be exportable as CSV/Excel and queryable in Athena.
+
+🎯 Objectives
+
+Build a complete dataset of Dallas restaurants ($$, $$$, $$$$).
+
+Include reservation platforms: OpenTable, Resy, Tock.
+
+Enrich with Google Places + Yelp: ratings, reviews, hours, menus, photos.
+
+Deliver in AWS-native pipeline: Athena + Glue + Lambda + S3.
+
+Provide sample dataset (10 rows) before scaling.
+
+📊 Schema (Final Output Fields)
+name | address | phone | website | reservation_platform | reservation_url |
+price_band | cuisine_tags | neighborhood | lat | lng | hours |
+avg_check_estimate | rating | review_count | image_url | menu_url | source_platform
+
+
+Discovery fields (Common Crawl): name, address, reservation_platform, reservation_url, price_band.
+
+Enrichment fields (Google/Yelp): phone, website, lat/lng, hours, rating, review_count, image_url, menu_url.
+
+Derived fields: cuisine_tags (taxonomy), neighborhood (geocoded), avg_check_estimate.
+
+🧹 Cleaning Rules
+
+Deduplicate by name + address.
+
+Normalize phone to ###-###-####.
+
+Strip ™, ®, “Restaurant” suffix unless core brand identity.
+
+Standardize cuisine taxonomy.
+
+Verify URLs resolve.
+
+UTF-8 encoding.
+
+🛠️ Data Sources
+
+Discovery (baseline)
+
+Common Crawl via Athena queries (OpenTable, Resy, Tock pages).
+
+Store raw → s3://bucket/raw/restaurants/.
+
+Enrichment (real-time)
+
+Google Places API → reviews, ratings, hours, photos, menus.
+
+Yelp Fusion API → ratings, review count, price confirmation, categories.
+
+Lambda functions call APIs → store enriched data → s3://bucket/staging/restaurants/.
+
+Merging
+
+Glue job creates join key = SHA256(normalized name + address).
+
+Join CC baseline with API enrichment.
+
+Store clean final dataset → s3://bucket/clean/restaurants/ (CSV + Parquet).
+
+🔧 AWS Workflow
+
+Athena → query Common Crawl for Dallas restaurant entries.
+
+Lambda → fetch enrichment from Google Places & Yelp APIs.
+
+Glue → clean, dedupe, merge baseline + enrichment.
+
+S3 → hold raw, staging, and clean datasets.
+
+Athena → query final dataset.
+
+Export → CSV/Excel for client delivery.
+
+🚧 Risks & Mitigation
+
+Common Crawl coverage incomplete → rely on Google API for enrichment/fallback discovery.
+
+Name/address mismatches → solve with normalization + fuzzy matching.
+
+API quotas/costs →
+
+Google Places: $200 free monthly credit (~10k lookups free).
+
+Yelp Fusion: free with 5,000 daily call limit.
+
+Freshness → APIs provide live data; CC is monthly, so enrichment ensures recency.
+
+✅ Acceptance Criteria
+
+Sample: 10 restaurants, full schema (CSV/Excel).
+
+Deduped, AWS-ready, UTF-8 encoded.
+
+≥90% Dallas $$+ restaurants covered.
+
+Ratings/reviews from Google/Yelp present for ≥85% of entries.
+
+Phone, address, and URLs standardized.
+
+📂 Example Row (Final Schema)
+Gemma | 2323 N Henderson Ave, Dallas, TX 75206 | 214-370-9426 | http://gemmadallas.com |
+OpenTable | https://www.opentable.com/r/gemma-dallas | $$$ | American, Contemporary |
+Knox/Henderson | 32.8123 | -96.7891 | Mon–Sun 5:00pm–10:00pm | 55 |
+4.5 | 682 | https://s3.yelpcdn.com/photo/gemma.jpg | https://gemmadallas.com/menu |
+OpenTable,Google,Yelp
+
+🤝 What I Want From the LLM
+
+Help design Athena queries for discovery.
+
+Write sample Lambda (Python) for Google/Yelp enrichment.
+
+Draft Glue jobs for cleaning + merging.
+
+Optimize deduplication & fuzzy matching.
+
+Validate schema + acceptance criteria.
+
+Estimate costs at Dallas scale.
+
+Suggest improvements before scaling to other markets (20+ cities).
